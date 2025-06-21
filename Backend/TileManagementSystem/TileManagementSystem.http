@@ -1,0 +1,6 @@
+@TileManagementSystem_HostAddress = http://localhost:5058
+
+GET {{TileManagementSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
