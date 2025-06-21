@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5058/api',
+  baseURL: 'https://tile-management-backend.onrender.com/api',
 });
 
 API.interceptors.request.use(
