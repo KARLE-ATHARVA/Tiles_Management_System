@@ -1,25 +1,19 @@
-# Use the official .NET SDK image
+# Use official .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy solution and project files
-COPY Backend/TileManagementSystem/TileManagementSystem.csproj ./TileManagementSystem/
-WORKDIR /app/TileManagementSystem
+# Copy everything and restore
+COPY . . 
 RUN dotnet restore
 
-# Copy the rest of the source code
-WORKDIR /app
-COPY Backend/TileManagementSystem/. ./TileManagementSystem/
-
 # Build the app
-WORKDIR /app/TileManagementSystem
 RUN dotnet publish -c Release -o out
 
-# Runtime image
+# Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/TileManagementSystem/out .
+COPY --from=build /app/out .
 
-# Expose port and run
-EXPOSE 8080
+# Expose port (change if needed)
+EXPOSE 80
 ENTRYPOINT ["dotnet", "TileManagementSystem.dll"]
