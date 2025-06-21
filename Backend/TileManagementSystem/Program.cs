@@ -18,12 +18,14 @@ builder.Services.AddDbContext<TileDbContext>(options =>
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
 
-// CORS for Render or any domain
+// CORS — allow ONLY your deployed frontend
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        policy.WithOrigins("https://tiles-management-system.vercel.app") // ✅ Your Vercel frontend domain
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
@@ -59,6 +61,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 // Serve static images
 app.UseStaticFiles();
 
+// Apply updated CORS policy
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
