@@ -1,23 +1,25 @@
-# Use official .NET 8 SDK image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
-EXPOSE 8080
-
+# Use the official .NET SDK image
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+WORKDIR /app
 
-# Copy .csproj and restore dependencies
-COPY *.sln .
-COPY TileManagementSystem/*.csproj ./TileManagementSystem/
+# Copy solution and project files
+COPY Backend/TileManagementSystem/TileManagementSystem.csproj ./TileManagementSystem/
+WORKDIR /app/TileManagementSystem
 RUN dotnet restore
 
-# Copy all files and build
-COPY . .
-WORKDIR /src/TileManagementSystem
-RUN dotnet publish -c Release -o /app/publish
-
-# Final image
-FROM base AS final
+# Copy the rest of the source code
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY Backend/TileManagementSystem/. ./TileManagementSystem/
+
+# Build the app
+WORKDIR /app/TileManagementSystem
+RUN dotnet publish -c Release -o out
+
+# Runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app/TileManagementSystem/out .
+
+# Expose port and run
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "TileManagementSystem.dll"]
