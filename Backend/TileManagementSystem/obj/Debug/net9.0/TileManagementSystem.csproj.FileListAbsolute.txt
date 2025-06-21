@@ -111,3 +111,4 @@ C:\Users\Atharva\OneDrive\Desktop\TASK_1\Backend\TileManagementSystem\obj\Debug\
 C:\Users\Atharva\OneDrive\Desktop\TASK_1\Backend\TileManagementSystem\obj\Debug\net9.0\TileManagementSystem.genruntimeconfig.cache
 C:\Users\Atharva\OneDrive\Desktop\TASK_1\Backend\TileManagementSystem\obj\Debug\net9.0\ref\TileManagementSystem.dll
 C:\Users\Atharva\OneDrive\Desktop\TASK_1\Backend\TileManagementSystem\bin\Debug\net9.0\TileManagementSystem.staticwebassets.runtime.json
+C:\Users\Atharva\OneDrive\Desktop\TASK_1\Backend\TileManagementSystem\obj\Debug\net9.0\TileManagementSystem.sourcelink.json
