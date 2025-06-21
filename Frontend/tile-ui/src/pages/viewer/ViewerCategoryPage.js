@@ -6,7 +6,7 @@ const ViewerCategoryPage = () => {
 
   const fetchUnblockedCategories = async () => {
     const token = localStorage.getItem("token");
-    const res = await axios.get("http://localhost:5058/api/Category", {
+    const res = await axios.get("https://tile-management-backend.onrender.com/api/Category", {
       headers: { Authorization: `Bearer ${token}` }
     });
     setCategories(res.data.filter(cat => !cat.isBlocked));

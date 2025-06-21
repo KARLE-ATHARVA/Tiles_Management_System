@@ -7,7 +7,7 @@ const ViewerProductsPage = () => {
   const fetchProducts = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:5058/api/Product", {
+      const res = await axios.get("https://tile-management-backend.onrender.com/api/Product", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(res.data);
@@ -32,7 +32,7 @@ const ViewerProductsPage = () => {
           >
             {product.imagePath && (
               <img
-                 src={`http://localhost:5058/uploads/${product.imagePath.replace(/^\/?uploads\//, '')}`}
+                 src={`https://tile-management-backend.onrender.com/uploads/${product.imagePath.replace(/^\/?uploads\//, '')}`}
                 alt={product.name}
                 className="w-full h-40 object-cover rounded"
               />

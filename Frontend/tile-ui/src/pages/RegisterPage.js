@@ -16,12 +16,12 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5058/api/auth/signup", {
+      await axios.post("https://tile-management-backend.onrender.com/api/auth/signup", {
         ...form,
         role: "Client",
       });
 
-      const loginRes = await axios.post("http://localhost:5058/api/auth/login", {
+      const loginRes = await axios.post("https://tile-management-backend.onrender.com/api/auth/login", {
         username: form.username,
         password: form.password,
       });

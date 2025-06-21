@@ -8,7 +8,7 @@ const ApplicationPage = () => {
 
   const fetchApplications = async () => {
     const token = localStorage.getItem("token");
-    const res = await axios.get("http://localhost:5058/api/Application", {
+    const res = await axios.get("https://tile-management-backend.onrender.com/api/Application", {
       headers: { Authorization: `Bearer ${token}` }
     });
     setApplications(res.data);
@@ -17,7 +17,7 @@ const ApplicationPage = () => {
   const toggleBlock = async (id) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.patch(`http://localhost:5058/api/Application/block/${id}`, {}, {
+      await axios.patch(`https://tile-management-backend.onrender.com/api/Application/block/${id}`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success("Application status updated.");
@@ -32,7 +32,7 @@ const ApplicationPage = () => {
     if (!newApp.trim()) return toast.error("Application name is required.");
     const token = localStorage.getItem("token");
     try {
-      await axios.post("http://localhost:5058/api/Application", {
+      await axios.post("https://tile-management-backend.onrender.com/api/Application", {
         name: newApp
       }, {
         headers: { Authorization: `Bearer ${token}` }

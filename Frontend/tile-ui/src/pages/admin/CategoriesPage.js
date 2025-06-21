@@ -8,7 +8,7 @@ const CategoryPage = () => {
 
   const fetchCategories = async () => {
     const token = localStorage.getItem("token");
-    const res = await axios.get("http://localhost:5058/api/Category", {
+    const res = await axios.get("https://tile-management-backend.onrender.com/api/Category", {
       headers: { Authorization: `Bearer ${token}` }
     });
     setCategories(res.data);
@@ -17,7 +17,7 @@ const CategoryPage = () => {
   const toggleBlock = async (id) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.patch(`http://localhost:5058/api/Category/block/${id}`, {}, {
+      await axios.patch(`https://tile-management-backend.onrender.com/api/Category/block/${id}`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success("Category status updated.");
@@ -32,7 +32,7 @@ const CategoryPage = () => {
     if (!newCategory.trim()) return toast.error("Category name is required.");
     const token = localStorage.getItem("token");
     try {
-      await axios.post("http://localhost:5058/api/Category", {
+      await axios.post("https://tile-management-backend.onrender.com/api/Category", {
         name: newCategory
       }, {
         headers: { Authorization: `Bearer ${token}` }

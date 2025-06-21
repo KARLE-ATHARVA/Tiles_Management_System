@@ -117,7 +117,7 @@ const ProductsPage = () => {
               </button>
             </div>
             {product.imagePath && (
-              <img src={`http://localhost:5058/uploads/${product.imagePath.replace(/^\/?uploads\//, '')}`} alt="Product" className="w-full h-40 object-cover rounded" />
+              <img src={`https://tile-management-backend.onrender.com/uploads/${product.imagePath.replace(/^\/?uploads\//, '')}`} alt="Product" className="w-full h-40 object-cover rounded" />
             )}
             <p className="text-sm text-gray-700">{product.description}</p>
             <p className="text-sm"><strong>SQ Code:</strong> {product.sqCode}</p>

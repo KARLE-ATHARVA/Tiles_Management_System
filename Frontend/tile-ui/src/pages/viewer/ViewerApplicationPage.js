@@ -6,7 +6,7 @@ const ViewerApplicationPage = () => {
 
   const fetchUnblockedApplications = async () => {
     const token = localStorage.getItem("token");
-    const res = await axios.get("http://localhost:5058/api/Application", {
+    const res = await axios.get("https://tile-management-backend.onrender.com/api/Application", {
       headers: { Authorization: `Bearer ${token}` }
     });
     setApplications(res.data.filter(app => !app.isBlocked));
