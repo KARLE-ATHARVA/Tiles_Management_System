@@ -47,7 +47,7 @@ const LoginPage = () => {
             <img src="/capture.avif" alt="Tile" className="rounded-2xl shadow-md object-cover h-96" />
           </div>
           <div className="mt-6 text-center">
-            <h2 className="text-3xl font-serif font-semibold text-[#1a1a1a]">Style your Tiles</h2>
+            <h2 className="text-3xl font-serif font-semibold text-[#1a1a1a]">Style with your Tiles</h2>
             <p className="mt-2 text-sm text-gray-600 px-4">Discover tiles that transform walls into art.</p>
           </div>
         </div>
