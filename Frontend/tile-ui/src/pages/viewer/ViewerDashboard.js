@@ -55,7 +55,7 @@ const ViewerDashboard = () => {
             transition={{ duration: 0.6 }}
             className="text-xl sm:text-2xl md:text-3xl font-yeseva tracking-wide text-center text-brand"
           >
-            Stile<span className="text-black">.it</span>– Style <span className="text-black">your Tiles</span>
+            Stile<span className="text-black">.it</span>– Style <span className="text-black"> with your Tiles</span>
           </motion.h1>
             </div>
           </div>
