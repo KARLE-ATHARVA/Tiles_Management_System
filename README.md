@@ -1,4 +1,4 @@
-# 🧱 Tile Management System
+# Stile.it-Tiles Management System
 
 A full-stack web application for managing tile product listings, built with **React.js**, **.NET Core (C#)**, **MySQL**, and deployed using **Render (backend)** and **Vercel (frontend)**.
 
